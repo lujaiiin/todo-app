@@ -1,4 +1,4 @@
-#EL EL U
+# EL EL U
 
 # Organize Your Day - A Unified Platform for Task Management and Personal Storytelling
 
