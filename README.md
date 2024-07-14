@@ -8,7 +8,7 @@ As a solo developer, I've crafted Organize Your Day, a versatile web application
 
 ## Solo Developer
 
-- **Developer**: [Your Name]
+- **Developer**: [Lujain BenShaban]
 - **Role**: Full Stack Developer, Designer, and Project Manager
 
 ## Architecture & Technologies
