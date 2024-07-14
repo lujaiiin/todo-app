@@ -22,14 +22,13 @@ class ScreenshotController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'screenshot' => 'required|mimes:png,jpg,jpeg,gif|max:2048',
-        ]);
+        $screenshotData = $request->getContent(); // Get the raw screenshot data
+        $filename = time().'.png'; // Generate a unique filename
+        $path = public_path('images/'.$filename); // Specify the full path to save the file
 
-        $imageName = time().'.'.$request->screenshot->extension();  
-        $request->screenshot->move(public_path('images/screenshots'), $imageName);
+        file_put_contents($path, base64_decode($screenshotData)); // Write the file to the specified path
 
-        return response()->json(['success'=>'Image saved successfully.']);
+        return response()->json(['success' => true]); // Return a success response
     }
     
 

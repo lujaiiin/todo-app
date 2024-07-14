@@ -2,12 +2,34 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\DailyEntry;
-//use App\Models\Day;
 
 class DayController extends Controller
 {
+    public function storeOrUpdate(Request $request, $day_id)
+    {
+        $validatedData = $request->validate([
+            'updated_entry' => 'required|string|max:500',
+        ]);
+        
+        try {
+            
+            DailyEntry::create([
+                'day_id' => $day_id,
+                'content' => $validatedData['updated_entry'],
+            ]);
+            return redirect()->back()->with('success', 'Entry saved successfully.');
+        } catch 
+        (\Exception $e) {
+            // Update logic
+            $day = DailyEntry::findOrFail($day_id);
+            $day->update(['content' => $validatedData['updated_entry']]);
+            return redirect()->back()->with('success', 'Entry updated successfully.');
+        }
+    }
+
     
     public function showDay(int $id)
     {
@@ -22,7 +44,7 @@ class DayController extends Controller
         ]);
     }
 
-    public function store(Request $request, int $day_id)
+    /*public function store(Request $request, int $day_id)
     {
         // Validate the incoming request...
         $validatedData = $request->validate([
@@ -59,4 +81,15 @@ class DayController extends Controller
 
         return back()->with('success', 'Entry updated successfully');
     }
+/*
+    public function destroy($day_id)
+    {
+        // Assuming you have a Day model and a relationship set up
+        $entry = DailyEntry::find($day_id);
+        $entry->delete();
+
+        // Redirect back or return a JSON response
+        return back()->with('success', 'Entry deleted successfully'); // Or return response()->json(['success' => true]);
+    }*/
+
 }

@@ -100,6 +100,15 @@ class TaskController extends Controller
 
         return response()->json(['success' => true]);
     }
+
+    public function showScreenshot(Request $request)
+    {
+        $title = $request->query('title');
+        $screenshotUrl = $request->query('screenshot');
+
+        // Render the page with the screenshot and title
+        return view('blog', ['title' => $title, 'screenshotUrl' => $screenshotUrl]);
+    }
     
 
     
