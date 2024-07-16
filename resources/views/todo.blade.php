@@ -10,6 +10,8 @@
 <div class="image" style="background-image: url('{{ asset('images/ya.jpg') }}');"></div>
 <form action="" method="GET">
     <!-- Button for Todo Route -->
+    <br>
+    <br>
     <a href="/tasks" class="button1">List</a>
 
     <!-- Button for Blog Route -->
