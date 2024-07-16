@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laravel ToDoList</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
         body { padding-top: 20px; }
     </style>
@@ -21,6 +21,6 @@
         </div>
     </div>
 
-    <script src="/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
