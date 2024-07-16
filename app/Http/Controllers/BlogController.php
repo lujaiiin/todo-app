@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\Models\Post; // Ensure you have a Post model
+use App\Models\Post;
 
 class BlogController extends Controller
 {
@@ -19,8 +18,6 @@ class BlogController extends Controller
         $post->content = $validatedData['content'];
         $post->save();
 
-        return response()->json(['success' => true]); // Adjust according to your needs
+        return response()->json(['success' => true]); 
     }
-    
-
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use App\Models\DailyEntry;
 
@@ -43,53 +42,5 @@ class DayController extends Controller
             'latestEntry' => $latestEntry // Pass the latest entry to the view
         ]);
     }
-
-    /*public function store(Request $request, int $day_id)
-    {
-        // Validate the incoming request...
-        $validatedData = $request->validate([
-            'new_entry' => 'required|string|max:255',
-        ]);
-
-        // Attempt to create a new DailyEntry instance...
-        try {
-            DailyEntry::create([
-                'day_id' => $day_id,
-                'content' => $validatedData['new_entry'],
-            ]);
-
-            // On successful creation, redirect back with a success message...
-            return back()->with('success', 'Entry saved successfully');
-        } catch (\Exception $e) {
-            // Handle any exceptions that occur during the creation process...
-            // For now, just log the exception and redirect back with an error message...
-            \Log::error("Failed to save entry: {$e->getMessage()}");
-            return back()->withErrors(['error' => 'There was an error saving your entry. Please try again.']);
-        }
-    }
-
-    public function update(Request $request, int $id)
-    {
-        $validatedData = $request->validate([
-            'updated_entry' => 'required|string|max:255',
-        ]);
-
-        $entry = DailyEntry::findOrFail($id);
-
-        $entry->content = $validatedData['updated_entry'];
-        $entry->save();
-
-        return back()->with('success', 'Entry updated successfully');
-    }
-/*
-    public function destroy($day_id)
-    {
-        // Assuming you have a Day model and a relationship set up
-        $entry = DailyEntry::find($day_id);
-        $entry->delete();
-
-        // Redirect back or return a JSON response
-        return back()->with('success', 'Entry deleted successfully'); // Or return response()->json(['success' => true]);
-    }*/
 
 }
