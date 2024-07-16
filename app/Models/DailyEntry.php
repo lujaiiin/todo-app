@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class DailyEntry extends Model
 {
-    protected $table = 'daily_entries'; // Ensure this matches your table name
+    protected $table = 'daily_entries'; 
     protected $primaryKey = 'day_id';
+    protected $fillable = [
+        'day_id',
+        'content',
+    ];
     use HasFactory;
 }
