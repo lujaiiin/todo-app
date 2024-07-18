@@ -8,11 +8,10 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 
 
-
 /**daily controller */
+
 Route::get('/day/{id}', [DayController::class, 'showDay'])->name('showDay');
 Route::post('/day/{day_id}', [DayController::class, 'storeOrUpdate'])->name('day.storeOrUpdate');
-
 
 /**posts controller */
 
@@ -22,21 +21,16 @@ Route::post('/posts', [PostController::class, 'store']);
 Route::get('/search', [App\Http\Controllers\PostController::class, 'search'])->name('search');
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 
-
-
 /**tasks routes  */
+
 Route::put('/tasks/{taskId}/toggle-completion', [TaskController::class, 'toggleCompletion'])->name('tasks.toggleCompletion');
 Route::resource('tasks', TaskController::class);
 
 Route::post('/save-published-content', [PostController::class, 'storePublishedContent'])->name('save.published.content');
 
-
-
 /**save screenshot */
 
 Route::post('/save-screenshot', [App\Http\Controllers\ScreenshotController::class, 'store'])->name('screenshots.store');
-
-
 
 /**user */
 
@@ -67,10 +61,3 @@ Route::get('/dailay', function () {
 Route::get('/todo', function () {
     return view('todo');
 });
-
-
-
-
-
-
-
